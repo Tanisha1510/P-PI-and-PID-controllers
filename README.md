@@ -52,23 +52,58 @@ The addition of an integral term to the controller ( ) tends to help reduce stea
 	Determine the steady state error and analyse the controllers.
 ## Program: 
 ### Without Controller (Open loop System)
-
+```
+num = [1];
+den = [1 10 20];
+sys = tf(num, den);
+step(sys);
+```
 
 ### With P-Controller
-
+```
+num=[1];
+den=[1 10 20];
+sys=tf(num,den)
+kp=300;
+C=pid(kp);
+T=feedback(C*sys,1);
+step(T)
+```
 ### With PI Controller
-
+```
+num=[1];
+den=[1 10 20];
+sys=tf(num,den)
+kp=30;
+ki=70;
+C=pid(kp,ki);
+T=feedback(C*sys,1);
+step(T)
+```
 ### With PID Controller
-
+```
+num=[1];
+den=[1 10 20];
+sys=tf(num,den)
+Kp=350;
+Ki=300;
+Kd=50;
+C=pid(Kp,Ki,Kd);
+T=feedback(C*sys,1);
+step(T)
+```
 ## Output: 
 ### Without Controller (Open loop System)
-
+<img width="694" height="626" alt="image" src="https://github.com/user-attachments/assets/5d680e55-a392-4eb9-bbe6-452eb6ac40f5" />
 
 ### With P-Controller
+<img width="697" height="618" alt="image" src="https://github.com/user-attachments/assets/6674c66f-548d-4413-ab39-b3ab9e0a2a45" />
 
 ### With PI Controller
+<img width="694" height="624" alt="image" src="https://github.com/user-attachments/assets/3f838219-2c9f-4200-9279-72970a26ad24" />
 
 ### With PID Controller
+<img width="692" height="629" alt="image" src="https://github.com/user-attachments/assets/a2e2c16f-47ea-4c1d-94d7-61f880a71718" />
 
 
 ## Result:
